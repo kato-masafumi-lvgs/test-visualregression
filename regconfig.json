@@ -9,12 +9,11 @@
     }
   },
   "plugins": {
-    "reg-keygen-git-hash-plugin": {},
     "reg-notify-github-plugin": {
       "clientId": "BcFRCsAgCADQE4nNZtBx/HAhqwVpnX/vEXG+MqWCoR5wzLf0pW2pu80P+eaaSsVXYsIQl2cPg36a/w=="
     },
     "reg-notify-slack-plugin": {
-      "webhookUrl": "https://hooks.slack.com/services/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"
+      "webhookUrl": "https://hooks.slack.com/services/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"
     }
   }
 }
