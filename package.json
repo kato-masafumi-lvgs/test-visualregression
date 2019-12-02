@@ -2,13 +2,15 @@
   "private": true,
   "scripts": {
     "test": "node capture.js",
-    "reg-suit": "reg-suit run"
+    "reg-suit": "reg-suit run",
+    "compare": "reg-suit compare"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "puppeteer": "^2.0.0",
     "reg-keygen-git-hash-plugin": "^0.7.25",
     "reg-notify-github-plugin": "^0.7.26",
+    "reg-notify-slack-plugin": "^0.8.4",
     "reg-publish-s3-plugin": "^0.7.25",
     "reg-suit": "^0.8.4"
   },
