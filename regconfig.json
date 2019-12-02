@@ -13,7 +13,7 @@
       "clientId": "BcFRCsAgCADQE4nNZtBx/HAhqwVpnX/vEXG+MqWCoR5wzLf0pW2pu80P+eaaSsVXYsIQl2cPg36a/w=="
     },
     "reg-notify-slack-plugin": {
-      "webhookUrl": "https://hooks.slack.com/services/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"
+      "webhookUrl": "https://hooks.slack.com/services/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"
     },
     "reg-keygen-git-hash-plugin": {},
     "reg-publish-s3-plugin": {

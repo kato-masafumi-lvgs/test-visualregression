@@ -3,7 +3,10 @@
   "scripts": {
     "test": "node capture.js",
     "reg-suit": "reg-suit run",
-    "compare": "reg-suit compare"
+    "compare": "reg-suit compare",
+    "publish": "reg-suit publish",
+    "make:ref": "node createReference_1.js",
+    "make:test": "node createTest_1.js"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
