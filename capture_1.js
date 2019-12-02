@@ -1,7 +1,6 @@
 /* capture.js */
 
 const puppeteer = require('puppeteer');
-const mkdirp = require('mkdirp');
 const devices = require('puppeteer/DeviceDescriptors');
 
 async function main(title, url, type) {
@@ -21,14 +20,13 @@ async function main(title, url, type) {
   await page.screenshot({ path: pcFilePath, fullPage: true, type: "png" });
 
   // sp
-  await page.emulate(devices['iPhone X']);
-  await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
-  const spFilePath = `screenshot/sp/${title}.png`;
-  await page.screenshot({ path: spFilePath, fullPage: true, type: "png" });
+//  await page.emulate(devices['iPhone X']);
+//  await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
+//  const spFilePath = `screenshot/sp/${title}.png`;
+//  await page.screenshot({ path: spFilePath, fullPage: true, type: "png" });
 
   await page.close();
   await browser.close();
 }
 
-mkdirp.sync('screenshots');
 module.exports = main;
