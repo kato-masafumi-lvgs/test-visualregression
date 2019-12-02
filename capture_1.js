@@ -18,7 +18,7 @@ async function main(title, url, type) {
   // ex) screenshots/pc/20190101_area.png
   const pcFilePath = `screenshot/pc/${title}.png`;
   await page.screenshot({ path: pcFilePath, fullPage: true, type: "png" });
-
+console.log('page shot');
   // sp
 //  await page.emulate(devices['iPhone X']);
 //  await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 });
