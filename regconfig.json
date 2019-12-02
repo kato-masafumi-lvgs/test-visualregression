@@ -14,6 +14,10 @@
     },
     "reg-notify-slack-plugin": {
       "webhookUrl": "https://hooks.slack.com/services/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"
+    },
+    "reg-keygen-git-hash-plugin": {},
+    "reg-publish-s3-plugin": {
+      "bucketName": "20191202-reg-suit"
     }
   }
 }
