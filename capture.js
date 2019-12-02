@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-const mkdirp = require('mkdirp');
 
 async function main() {
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
@@ -14,5 +13,4 @@ async function main() {
   await browser.close();
 }
 
-mkdirp.sync('screenshot');
 main();
