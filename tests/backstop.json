@@ -16,8 +16,7 @@
   "scenarios": [
     {
       "label": "top",
-      "url": "https://example.cypress.io",
-      "referenceUrl": "https://example.cypress.io/commands/querying" 
+      "url": "https://stg.kango-oshigoto.jp/corporate/"
     }
   ],
   "paths": {
