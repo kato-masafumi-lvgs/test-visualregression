@@ -11,12 +11,15 @@ jobs:
       - run: 'ls'
       - restore_cache:
           keys:
-            - yarn-dependencies-{{ checksum "package.json" }}
-      - run: yarn
+            - yarn-dependencies-{{ checksum "tests/package.json" }}
+      - run:
+          name: 'yarn'
+          working_directory: tests
+          command: yarn
       - save_cache:
           paths:
             - tests/node_modules
-          key: yarn-dependencies-{{ checksum "package.json" }}
+          key: yarn-dependencies-{{ checksum "tests/package.json" }}
       - run:
           name: install fonts
           command: |
@@ -24,14 +27,14 @@ jobs:
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
       - run:
           name: 'yarn ref'
-          working_directory: repo/tests
+          working_directory: tests
           command: 'yarn ref'
       - run:
           name: 'yarn test'
-          working_directory: repo/tests
+          working_directory: tests
           command: 'yarn test'
       - store_artifacts:
-          path: repo/tests/test
+          path: tests/test
           destination: test
       - store_artifacts:
           path: tests/reference/
