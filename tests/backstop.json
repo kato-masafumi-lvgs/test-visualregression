@@ -1,0 +1,50 @@
+{
+  "id": "ui test",
+  "viewports": [
+    {
+      "label": "sp",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "pc",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "top",
+      "url": "https://stg.kango-oshigoto.jp/"
+    },
+    {
+      "label": "area_prefecture",
+      "url": "https://stg.kango-oshigoto.jp/area/tokyo/"
+    },
+    {
+      "label": "area_prefecture_city",
+      "url": "https://stg.kango-oshigoto.jp/area/tokyo/13101"
+    },
+    {
+      "label": "search",
+      "url": "https://stg.kango-oshigoto.jp/search/%E6%AD%A3%E7%9C%8B%E8%AD%B7%E5%B8%AB"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "src/reference",
+    "bitmaps_test": "src/tests",
+    "engine_scripts": "src/scripts",
+    "html_report": "src/html_report",
+    "ci_report": "src/ci_report"
+  },
+  "report": ["browsers", "CI"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox", "disable-setuid-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

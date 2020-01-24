@@ -1,0 +1,7 @@
+node_modules/*
+/src/html_report/*
+!/src/html_report/.gitignore
+/src/reference/*
+!/src/reference/.gitignore
+/src/tests/*
+!/src/tests/.gitignore
