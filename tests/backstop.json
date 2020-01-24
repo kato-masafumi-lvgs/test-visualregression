@@ -11,7 +11,7 @@
   "scenarios": [
     {
       "label": "top",
-      "url": "https://stg.kango-oshigoto.jp/corporate/"
+      "url": "https://kango-oshigoto.jp/corporate/"
     }
   ],
   "paths": {
@@ -24,8 +24,8 @@
   "report": ["browsers", "CI"],
   "engine": "puppeteer",
   "engineOptions": {
-    "waitTimeout": 300000,
-    "args": ["--no-sandbox", "disable-setuid-sandbox"]
+    "waitTimeout": 120000,
+    "args": ["--no-sandbox", "--disable-setuid-sandbox"]
   },
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
