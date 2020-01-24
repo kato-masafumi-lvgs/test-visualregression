@@ -2,28 +2,32 @@ version: 2
 jobs:
   build:
     docker:
-      - image: regviz/node-xcb
-
-    working_directory: ~/repo
-
+      - image: circleci/node:latest-browsers
+    working_directory: ~/workplace
     steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
+      - run:
+          name: 'mkdir'
+          command: mkdir -p /tmp/workspace
+      - run:
+          name: 'echo'
+          command: echo 'This is artifact' >> /tmp/workspace/artifact.txt
+      - persist_to_workspace:
+          root: /tmp/workspace
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn make:test
-      - run: yarn run reg-suit
+            - artifact.txt
+  deploy:
+    docker:
+      - image: circleci/node:latest-browsers
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: cat /tmp/workspace/artifact.txt
 
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
