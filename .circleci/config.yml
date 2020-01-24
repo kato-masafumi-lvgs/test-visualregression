@@ -1,28 +1,46 @@
 version: 2
 jobs:
+
   build:
     docker:
       - image: circleci/node:latest-browsers
-    working_directory: ~/workplace
+    working_directory: ~/repo
     steps:
-      - run:
-          name: 'mkdir'
-          command: mkdir -p ./tmp/workspace
-      - run:
-          name: 'echo'
-          command: echo 'This is artifact test' >> ./tmp/workspace/artifact.txt
-      - persist_to_workspace:
-          root: ./tmp/workspace
+      - checkout
+      - run: 'pwd'
+      - run: 'ls'
+      - restore_cache:
+          keys:
+            - yarn-dependencies-{{ checksum "package.json" }}
+      - run: yarn
+      - save_cache:
           paths:
-            - artifact.txt
-  deploy:
-    docker:
-      - image: circleci/node:latest-browsers
-    steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - run: cat /tmp/workspace/artifact.txt
-
+            - tests/node_modules
+          key: yarn-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: install fonts
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
+      - run:
+          name: 'yarn ref'
+          working_directory: repo/tests
+          command: 'yarn ref'
+      - run:
+          name: 'yarn test'
+          working_directory: repo/tests
+          command: 'yarn test'
+      - store_artifacts:
+          path: repo/tests/test
+          destination: test
+      - store_artifacts:
+          path: tests/reference/
+          destination: reference
+      - store_artifacts:
+          path: tests/html_report
+          destination: html_report
+      - store_test_results:
+          path: tests/ci_report
 workflows:
   version: 2
   build-deploy:
