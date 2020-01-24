@@ -29,6 +29,7 @@
   "report": ["browsers", "CI"],
   "engine": "puppeteer",
   "engineOptions": {
+    "waitTimeout": 120000,
     "args": ["--no-sandbox", "disable-setuid-sandbox"]
   },
   "asyncCaptureLimit": 5,
