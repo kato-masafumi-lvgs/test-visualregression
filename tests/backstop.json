@@ -30,5 +30,5 @@
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
   "debug": true,
-  "debugWindow": true
+  "debugWindow": false
 }
