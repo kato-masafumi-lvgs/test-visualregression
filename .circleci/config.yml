@@ -11,12 +11,15 @@ jobs:
       - run: 'ls'
       - restore_cache:
           keys:
-            - yarn-dependencies-{{ checksum "package.json" }}
-      - run: yarn
+            - yarn-dependencies-{{ checksum "tests/package.json" }}
+      - run:
+          name: 'yarn'
+          working_directory: tests
+          command: yarn
       - save_cache:
           paths:
             - tests/node_modules
-          key: yarn-dependencies-{{ checksum "package.json" }}
+          key: yarn-dependencies-{{ checksum "tests/package.json" }}
       - run:
           name: install fonts
           command: |
