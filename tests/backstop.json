@@ -16,7 +16,7 @@
   "scenarios": [
     {
       "label": "top",
-      "url": "https://stg.kango-oshigoto.jp/"
+      "url": "https://example.cypress.io"
     }
   ],
   "paths": {
