@@ -17,18 +17,6 @@
     {
       "label": "top",
       "url": "https://stg.kango-oshigoto.jp/"
-    },
-    {
-      "label": "area_prefecture",
-      "url": "https://stg.kango-oshigoto.jp/area/tokyo/"
-    },
-    {
-      "label": "area_prefecture_city",
-      "url": "https://stg.kango-oshigoto.jp/area/tokyo/13101"
-    },
-    {
-      "label": "search",
-      "url": "https://stg.kango-oshigoto.jp/search/%E6%AD%A3%E7%9C%8B%E8%AD%B7%E5%B8%AB"
     }
   ],
   "paths": {

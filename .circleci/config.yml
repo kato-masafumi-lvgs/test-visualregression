@@ -34,16 +34,16 @@ jobs:
           working_directory: tests
           command: 'yarn test'
       - store_artifacts:
-          path: tests/test
+          path: tests/src/test
           destination: test
       - store_artifacts:
-          path: tests/reference/
+          path: tests/src/reference/
           destination: reference
       - store_artifacts:
-          path: tests/html_report
+          path: tests/src/html_report
           destination: html_report
       - store_test_results:
-          path: tests/ci_report
+          path: tests/src/ci_report
 workflows:
   version: 2
   build-deploy:
