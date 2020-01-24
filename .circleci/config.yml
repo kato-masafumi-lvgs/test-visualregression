@@ -7,12 +7,12 @@ jobs:
     steps:
       - run:
           name: 'mkdir'
-          command: mkdir -p /tmp/workspace
+          command: mkdir -p ./tmp/workspace
       - run:
           name: 'echo'
-          command: echo 'This is artifact' >> /tmp/workspace/artifact.txt
+          command: echo 'This is artifact' >> ./tmp/workspace/artifact.txt
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ./tmp/workspace
           paths:
             - artifact.txt
   deploy:
