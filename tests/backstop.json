@@ -5,11 +5,6 @@
       "label": "sp",
       "width": 320,
       "height": 480
-    },
-    {
-      "label": "pc",
-      "width": 1024,
-      "height": 768
     }
   ],
   "onReadyScript": "puppet/onReady.js",
