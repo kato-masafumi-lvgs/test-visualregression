@@ -34,8 +34,8 @@ jobs:
           working_directory: tests
           command: 'yarn test'
       - store_artifacts:
-          path: tests/src/test
-          destination: test
+          path: tests/src/tests
+          destination: tests
       - store_artifacts:
           path: tests/src/reference/
           destination: reference
