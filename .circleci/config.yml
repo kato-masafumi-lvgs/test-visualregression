@@ -24,14 +24,14 @@ jobs:
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
       - run:
           name: 'yarn ref'
-          working_directory: repo/tests
+          working_directory: tests
           command: 'yarn ref'
       - run:
           name: 'yarn test'
-          working_directory: repo/tests
+          working_directory: tests
           command: 'yarn test'
       - store_artifacts:
-          path: repo/tests/test
+          path: tests/test
           destination: test
       - store_artifacts:
           path: tests/reference/
