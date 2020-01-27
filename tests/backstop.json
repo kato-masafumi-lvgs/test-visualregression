@@ -5,6 +5,11 @@
       "label": "sp",
       "width": 320,
       "height": 480
+    },
+    {
+      "label": "pc",
+      "width": 1024,
+      "height": 768
     }
   ],
   "onReadyScript": "puppet/onReady.js",
@@ -12,6 +17,10 @@
     {
       "label": "top",
       "url": "https://kango-oshigoto.jp"
+    },
+    {
+      "label": "area_prefecture",
+      "url": "https://stg.kango-oshigoto.jp/area/aichi/"
     }
   ],
   "paths": {
