@@ -27,7 +27,7 @@ jobs:
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
       - run:
           name: 'make directory'
-          command: 'mkdir -p /tests/src/'
+          command: 'sudo mkdir -p /tests/src/'
       - attach_workspace:
           at: /tests/src
       - run:
