@@ -46,7 +46,10 @@ jobs:
       - run:
           name: 'yarn test'
           working_directory: tests
-          command: 'yarn test'
+          command: |
+            if [ -z "yarn test" ]; then
+              echo "check the difference"
+            fi
       - store_artifacts:
           path: tests/src/tests
           destination: tests
