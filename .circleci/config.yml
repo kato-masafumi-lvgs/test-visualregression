@@ -25,10 +25,12 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
+      - attach_workspace:
+          at: /tests/src
       - run:
-          name: 'yarn ref'
-          working_directory: tests
-          command: 'yarn ref'
+          name: 'copy reference to workspace'
+          working_directory: tests/visual_regression/
+          command: 'cp -r /tests/src/reference/ ./src/reference'
       - run:
           name: 'yarn test'
           working_directory: tests
@@ -44,6 +46,11 @@ jobs:
           destination: html_report
       - store_test_results:
           path: tests/src/ci_report
+      - persist_to_workspace:
+          root: ./tests/src
+          paths:
+            - reference
+            - tests
 workflows:
   version: 2
   build-deploy:
