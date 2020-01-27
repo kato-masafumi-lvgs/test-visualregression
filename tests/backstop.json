@@ -30,7 +30,7 @@
     "html_report": "src/html_report",
     "ci_report": "src/ci_report"
   },
-  "report": ["browsers", "CI"],
+  "report": ["browser", "CI"],
   "engine": "puppeteer",
   "engineOptions": {
     "waitTimeout": 120000,
