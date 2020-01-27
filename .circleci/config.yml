@@ -36,9 +36,9 @@ jobs:
           command: |
             directory=/tests/src/reference
             if [ -z "$(ls $directory)" ]; then
-              cp -r /tests/src/reference/ ./src/reference
-            else
               yarn ref
+            else
+              cp -r /tests/src/reference/ ./src/reference
             fi
       - run:
           name: 'yarn test'
