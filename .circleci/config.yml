@@ -33,7 +33,13 @@ jobs:
       - run:
           name: 'copy reference to workspace'
           working_directory: tests/visual_regression/
-          command: 'cp -r /tests/src/reference/ ./src/reference'
+          command: |
+            directory=/tests/src/reference
+            if [ -z "$(ls $directory)" ]; then
+              cp -r /tests/src/reference/ ./src/reference
+            else
+              yarn ref
+            fi
       - run:
           name: 'yarn test'
           working_directory: tests
