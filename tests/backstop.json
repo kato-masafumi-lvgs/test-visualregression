@@ -5,6 +5,11 @@
       "label": "sp",
       "width": 320,
       "height": 480
+    },
+    {
+      "label": "pc",
+      "width": 1024,
+      "height": 768
     }
   ],
   "onReadyScript": "puppet/onReady.js",
@@ -12,6 +17,10 @@
     {
       "label": "top",
       "url": "https://kango-oshigoto.jp"
+    },
+    {
+      "label": "area_prefecture",
+      "url": "https://kango-oshigoto.jp/area/aichi/"
     }
   ],
   "paths": {
@@ -21,7 +30,7 @@
     "html_report": "src/html_report",
     "ci_report": "src/ci_report"
   },
-  "report": ["browsers", "CI"],
+  "report": ["CI"],
   "engine": "puppeteer",
   "engineOptions": {
     "waitTimeout": 120000,

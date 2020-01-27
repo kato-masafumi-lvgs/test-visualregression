@@ -31,6 +31,9 @@ jobs:
       - attach_workspace:
           at: /tests/src
       - run:
+          name: 'ls'
+          command: 'ls /tests/src'
+      - run:
           name: 'copy reference to workspace'
           working_directory: tests/visual_regression/
           command: |
@@ -43,7 +46,7 @@ jobs:
       - run:
           name: 'yarn test'
           working_directory: tests
-          command: 'yarn test'
+          command: "yarn test"
       - store_artifacts:
           path: tests/src/tests
           destination: tests
