@@ -85,11 +85,13 @@ jobs:
       - run: ls
       - run: ls ./tests
       - attach_workspace:
-          at: ./tests/visual_regression
-      - run: cat ./tests/visual_regression/artifact.txt
-      - run: ls ./tests/visual_regression
+          at: ./tests/src/reference
+      - run: ls ./tests/src
 workflows:
   version: 2
   build-deploy:
     jobs:
       - build
+      - next-test:
+         requires:
+          - build
