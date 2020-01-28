@@ -66,12 +66,14 @@ jobs:
   test:
     docker:
       - image: circleci/node:10.15.0
+    workting_direcotry: ~/repo
     steps:
-      - run: mkdir -p /tmp/workspace
-      - run: echo 'This is artifact' >> /tmp/workspace/artifact.txt
-      - run: cat /tmp/workspace/artifact.txt
+      - checkout
+      - run: mkdir -p ./tests/visual_regression
+      - run: echo 'This is artifact' >> /tmp/visual_regression/artifact.txt
+      - run: cat ./tests/visual_regression/artifact.txt
       - persist_to_workspace:
-         root: /tmp/workspace
+         root: ./tests/visual_regression
          paths:
            - artifact.txt
   next-test:
@@ -79,8 +81,8 @@ jobs:
       - image: circleci/node:10.15.0
     steps:
       - attach_workspace:
-          at: /tmp/workspace
-      - run: cat /tmp/workspace/artifact.txt
+          at: /tests/visual_regression
+      - run: cat /tests/workspace/artifact.txt
 workflows:
   version: 2
   build-deploy:
