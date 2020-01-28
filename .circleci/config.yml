@@ -29,10 +29,10 @@ jobs:
           name: 'make directory'
           command: 'sudo mkdir -p /tests && sudo mkdir -p /tests/src'
       - attach_workspace:
-          at: /tests/src
+          at: ./tests/src
       - run:
           name: 'ls'
-          command: 'ls /tests/src'
+          command: ls tests/src
       - run:
           name: 'copy reference to workspace'
           working_directory: tests/visual_regression/
