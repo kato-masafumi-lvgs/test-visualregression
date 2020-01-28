@@ -86,7 +86,7 @@ jobs:
       - run: ls ./tests
       - attach_workspace:
           at: ./tests/src/reference
-      - run: ls ./tests/src
+      - run: ls ./tests/src/reference
 workflows:
   version: 2
   build-deploy:
