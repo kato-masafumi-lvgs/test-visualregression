@@ -6,11 +6,11 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: 'pwd'
-      - run: 'ls'
+      - run: pwd
+      - run: ls
       - restore_cache:
           keys:
-            - yarn-dependencies-{{ checksum "tests/package.json" }}
+            - 'yarn-dependencies-{{ checksum "tests/package.json" }}'
       - run:
           name: 'yarn'
           working_directory: tests
@@ -18,29 +18,27 @@ jobs:
       - save_cache:
           paths:
             - tests/node_modules
-          key: yarn-dependencies-{{ checksum "tests/package.json" }}
+          key: 'yarn-dependencies-{{ checksum "tests/package.json" }}'
       - run:
           name: install fonts
           command: |
             sudo apt-get update
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
       - attach_workspace:
-          at: ./tests/visual_regression/src
+          at: ./tests/src
       - run:
           name: 'ls'
-          command: ls /tests/visual_regression
+          command: ls ./tests
       - run:
           name: 'ls'
-          command: ls /tests/visual_regression/src
+          command: ls ./tests/src
       - run:
-          name: 'copy reference to workspace'
-          working_directory: tests/visual_regression/
+          name: 'yarn ref'
+          working_directory: tests/
           command: |
             directory=/tests/src/reference
             if [ -z "$(ls $directory)" ]; then
               yarn ref
-            else
-              cp -r /tests/src/reference/ ./src/reference
             fi
       - run:
           name: 'yarn test'
@@ -59,7 +57,7 @@ jobs:
       - store_test_results:
           path: tests/src/ci_report
       - persist_to_workspace:
-          root: ./tests/visual_regression/src
+          root: ./tests/src
           paths:
             - reference
             - tests
@@ -94,7 +92,4 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - test
-      - next-test:
-          requires:
-            - test
+      - build
