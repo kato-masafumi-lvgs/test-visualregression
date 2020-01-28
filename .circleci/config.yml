@@ -70,7 +70,7 @@ jobs:
     steps:
       - checkout
       - run: mkdir -p ./tests/visual_regression
-      - run: echo 'This is artifact' >> /tmp/visual_regression/artifact.txt
+      - run: echo 'This is artifact' >> ./tests/visual_regression/artifact.txt
       - run: cat ./tests/visual_regression/artifact.txt
       - persist_to_workspace:
          root: ./tests/visual_regression
