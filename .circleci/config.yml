@@ -81,8 +81,8 @@ jobs:
       - image: circleci/node:10.15.0
     steps:
       - attach_workspace:
-          at: /tests/visual_regression
-      - run: cat /tests/workspace/artifact.txt
+          at: ./tests/visual_regression
+      - run: cat ./tests/workspace/artifact.txt
 workflows:
   version: 2
   build-deploy:
