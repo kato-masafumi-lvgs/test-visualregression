@@ -82,6 +82,7 @@ jobs:
     docker:
       - image: circleci/node:10.15.0
     steps:
+      - run: ls ./tests/visual_regression
       - attach_workspace:
           at: ./tests/visual_regression
       - run: cat ./tests/visual_regression/artifact.txt
