@@ -63,8 +63,29 @@ jobs:
           paths:
             - reference
             - tests
+  test:
+    docker:
+      - image: circleci/node:10.15.0
+    steps:
+      - run: mkdir -p /tmp/workspace
+      - run: echo 'This is artifact' >> /tmp/workspace/artifact.txt
+      - run: cat /tmp/workspace/artifact.txt
+      - persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - artifact.txt
+  next-text:
+    docker:
+      - image: circleci/node:10.15.0
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+      - run: cat /tmp/workspace/artifact.txt
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - test
+      - next-test:
+          requires:
+            - test
