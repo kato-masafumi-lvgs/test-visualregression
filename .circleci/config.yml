@@ -31,7 +31,7 @@ jobs:
           command: ls ./tests
       - run:
           name: 'ls'
-          command: ls ./tests/src
+          command: ls ./tests/src/reference
       - run:
           name: 'yarn ref'
           working_directory: tests/
