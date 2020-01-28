@@ -46,7 +46,8 @@ jobs:
       - run:
           name: 'yarn test'
           working_directory: tests
-          command: "yarn test"
+          command: |
+            "yarn test" || echo "check the difference"
       - store_artifacts:
           path: tests/src/tests
           destination: tests
