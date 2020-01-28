@@ -71,9 +71,9 @@ jobs:
       - run: echo 'This is artifact' >> /tmp/workspace/artifact.txt
       - run: cat /tmp/workspace/artifact.txt
       - persist_to_workspace:
-        root: /tmp/workspace
-        paths:
-          - artifact.txt
+         root: /tmp/workspace
+         paths:
+           - artifact.txt
   next-text:
     docker:
       - image: circleci/node:10.15.0
