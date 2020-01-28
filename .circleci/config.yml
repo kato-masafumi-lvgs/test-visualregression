@@ -36,7 +36,7 @@ jobs:
           name: 'yarn ref'
           working_directory: tests/
           command: |
-            directory=/tests/src/reference
+            directory=./tests/src/reference
             if [ -z "$(ls $directory)" ]; then
               yarn ref
             fi
