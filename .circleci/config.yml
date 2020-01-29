@@ -90,6 +90,8 @@ jobs:
       - checkout
       - run: ls
       - run: ls ./tests/src
+      - run: echo 'for test' >> ./tests/src/testtest.txt
+      - run: ls ./tests/src
       - attach_workspace:
           at: ./tests/src
       - run: ls ./tests/src
