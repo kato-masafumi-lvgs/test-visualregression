@@ -70,12 +70,14 @@ jobs:
     working_direcotry: ~/repo
     steps:
       - checkout
-      - run: mkdir -p ./tests/visual_regression
-      - run: echo 'This is artifact' >> ./tests/visual_regression/artifact.txt
-      - run: cat ./tests/visual_regression/artifact.txt
-      - run: mkdir -p ./tests/visual_regression/hoge
+      - run: mkdir -p ./tests/src
+      - attach_workspace:
+          at: ./tests/src
+      - run: echo 'This is artifact' >> ./tests/src/artifact.txt
+      - run: cat ./tests/src/artifact.txt
+      - run: mkdir -p ./tests/src/hoge
       - persist_to_workspace:
-         root: ./tests/visual_regression
+         root: ./tests/src
          paths:
            - artifact.txt
            - hoge
@@ -95,7 +97,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
+      - test
       - next-test:
          requires:
           - build
