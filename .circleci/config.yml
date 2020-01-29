@@ -94,6 +94,7 @@ jobs:
           at: ./tests/src/reference
       - run: ls ./tests/src/reference
       - run: echo 'This is test' >> ./tests/src/test.txt
+      - run: ls ./tests/src
       - persist_to_workspace:
           root: ./tests/src
           paths:
