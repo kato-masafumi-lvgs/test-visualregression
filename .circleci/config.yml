@@ -100,4 +100,4 @@ workflows:
       - test
       - next-test:
          requires:
-          - build
+          - test
