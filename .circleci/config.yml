@@ -91,7 +91,8 @@ jobs:
       - run: ls
       - run: ls ./tests
       - attach_workspace:
-          at: ./tests/src/reference
+          at: ./tests/src
+      - run: ls ./tests/src
       - run: ls ./tests/src/reference
       - run: echo 'This is test' >> ./tests/src/test.txt
       - run: ls ./tests/src
