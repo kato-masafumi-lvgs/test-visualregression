@@ -6,11 +6,11 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: 'pwd'
-      - run: 'ls'
+      - run: pwd
+      - run: ls
       - restore_cache:
           keys:
-            - yarn-dependencies-{{ checksum "tests/package.json" }}
+            - 'yarn-dependencies-{{ checksum "tests/package.json" }}'
       - run:
           name: 'yarn'
           working_directory: tests
@@ -18,29 +18,30 @@ jobs:
       - save_cache:
           paths:
             - tests/node_modules
-          key: yarn-dependencies-{{ checksum "tests/package.json" }}
+          key: 'yarn-dependencies-{{ checksum "tests/package.json" }}'
       - run:
           name: install fonts
           command: |
             sudo apt-get update
             sudo apt-get install -y fonts-ipafont-gothic fonts-ipafont-mincho
       - attach_workspace:
-          at: ./tests/visual_regression/src
+          at: ./tests/src/reference
       - run:
           name: 'ls'
-          command: ls /tests/visual_regression
+          command: ls ./tests
       - run:
           name: 'ls'
-          command: ls /tests/visual_regression/src
+          command: ls ./tests/src
       - run:
-          name: 'copy reference to workspace'
-          working_directory: tests/visual_regression/
+          name: 'ls'
+          command: ls ./tests/src/reference
+      - run:
+          name: 'yarn ref'
+          working_directory: tests/
           command: |
-            directory=/tests/src/reference
+            directory=./tests/src/reference
             if [ -z "$(ls $directory)" ]; then
               yarn ref
-            else
-              cp -r /tests/src/reference/ ./src/reference
             fi
       - run:
           name: 'yarn test'
@@ -59,39 +60,49 @@ jobs:
       - store_test_results:
           path: tests/src/ci_report
       - persist_to_workspace:
-          root: ./tests/visual_regression/src
+          root: ./tests/src
           paths:
-            - reference
-            - tests
+            - reference/*
+            - tests/*
   test:
     docker:
       - image: circleci/node:10.15.0
-    workting_direcotry: ~/repo
+    working_direcotry: ~/repo
     steps:
       - checkout
-      - run: mkdir -p ./tests/visual_regression
-      - run: echo 'This is artifact' >> ./tests/visual_regression/artifact.txt
-      - run: cat ./tests/visual_regression/artifact.txt
-      - run: mkdir -p ./tests/visual_regression/hoge
+      - run: mkdir -p ./tests/src
+      - attach_workspace:
+          at: ./tests/src
+      - run: ls ./tests/src
+      - run: echo 'This is artifact' >> ./tests/src/artifact.txt
+      - run: cat ./tests/src/artifact.txt
+      - run: mkdir -p ./tests/src/hoge
       - persist_to_workspace:
-         root: ./tests/visual_regression
+         root: ./tests/src
          paths:
            - artifact.txt
            - hoge
   next-test:
     docker:
       - image: circleci/node:10.15.0
+    working_directory: ~/repo
     steps:
-      - run: ls ./tests/visual_regression
+      - checkout
+      - run: ls
+      - run: ls ./tests
       - attach_workspace:
-          at: ./tests/visual_regression
-      - run: cat ./tests/visual_regression/artifact.txt
-      - run: ls ./tests/visual_regression
+          at: ./tests/src/reference
+      - run: ls ./tests/src/reference
+      - run: echo 'This is test' >> ./tests/src/test.txt
+      - persist_to_workspace:
+          root: ./tests/src
+          paths:
+            - test.txt
 workflows:
   version: 2
   build-deploy:
     jobs:
       - test
       - next-test:
-          requires:
-            - test
+         requires:
+          - test
