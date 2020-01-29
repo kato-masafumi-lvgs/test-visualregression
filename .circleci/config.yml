@@ -93,7 +93,6 @@ jobs:
       - attach_workspace:
           at: ./tests/src/reference
       - run: ls ./tests/src/reference
-      - run: ls ./tests/src/reference/reference
       - run: echo 'This is test' >> ./tests/src/test.txt
       - persist_to_workspace:
           root: ./tests/src
