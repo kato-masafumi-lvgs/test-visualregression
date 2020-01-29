@@ -73,6 +73,7 @@ jobs:
       - run: mkdir -p ./tests/src
       - attach_workspace:
           at: ./tests/src
+      - run: ls ./tests/src
       - run: echo 'This is artifact' >> ./tests/src/artifact.txt
       - run: cat ./tests/src/artifact.txt
       - run: mkdir -p ./tests/src/hoge
