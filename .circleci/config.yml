@@ -62,8 +62,8 @@ jobs:
       - persist_to_workspace:
           root: ./tests/src
           paths:
-            - reference
-            - tests
+            - reference/*
+            - tests/*
   test:
     docker:
       - image: circleci/node:10.15.0
