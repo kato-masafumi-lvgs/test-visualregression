@@ -1202,8 +1202,9 @@ jpeg-js@^0.3.3:
   resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.3.3.tgz#4d60ea7188d1a7598e92f0a8cdcaf5d78286bea6"
 
 jquery@x.*:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.0.tgz#9980b97d9e4194611c36530e7dc46a58d7340fc9"
+  integrity sha512-Xb7SVYMvygPxbFMpTFQiHh1J7HClEaThguL15N/Gg37Lri/qKyhRGZYzHRyLH8Stq3Aow0LsHO2O2ci86fCrNQ==
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -1846,6 +1847,14 @@ reg-notify-github-plugin@^0.7.26:
     request "^2.81.0"
     request-promise "^4.2.1"
     tiny-commit-walker "^1.1.2"
+
+reg-notify-slack-plugin@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/reg-notify-slack-plugin/-/reg-notify-slack-plugin-0.8.4.tgz#de8ca73ee20aed3a5b1a9eeeb4f95532ce723f40"
+  integrity sha512-J6peTb2v6jqKmTtLqIColOP0PgtkNyTE6zsPX1MHJSVV+EqcgzhylQ/6iJn/BQqFrBgDBiNaiBwtO/MBqL6CGQ==
+  dependencies:
+    request "^2.81.0"
+    request-promise "^4.2.1"
 
 reg-publish-s3-plugin@^0.7.25:
   version "0.7.25"
