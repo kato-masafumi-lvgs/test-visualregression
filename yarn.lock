@@ -1847,6 +1847,14 @@ reg-notify-github-plugin@^0.7.26:
     request-promise "^4.2.1"
     tiny-commit-walker "^1.1.2"
 
+reg-notify-slack-plugin@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/reg-notify-slack-plugin/-/reg-notify-slack-plugin-0.8.4.tgz#de8ca73ee20aed3a5b1a9eeeb4f95532ce723f40"
+  integrity sha512-J6peTb2v6jqKmTtLqIColOP0PgtkNyTE6zsPX1MHJSVV+EqcgzhylQ/6iJn/BQqFrBgDBiNaiBwtO/MBqL6CGQ==
+  dependencies:
+    request "^2.81.0"
+    request-promise "^4.2.1"
+
 reg-publish-s3-plugin@^0.7.25:
   version "0.7.25"
   resolved "https://registry.yarnpkg.com/reg-publish-s3-plugin/-/reg-publish-s3-plugin-0.7.25.tgz#4cd3e95c41713eb3be38a77762b90804d4b49723"
@@ -2378,8 +2386,9 @@ xmlbuilder@~11.0.0:
   integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 y18n@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.2.tgz#85c901bd6470ce71fc4bb723ad209b70f7f28696"
+  integrity sha512-uGZHXkHnhF0XeeAPgnKfPv1bgKAYyVvmNL1xlKsPYZPaIHxGti2hHqvOCQv71XMsLxu1QjergkqogUnms5D3YQ==
 
 yallist@^2.1.2:
   version "2.1.2"
