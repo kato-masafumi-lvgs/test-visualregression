@@ -1618,8 +1618,9 @@ path-key@^3.1.0:
   integrity sha512-8cChqz0RP6SHJkMt48FW0A7+qUOn+OsnOsVtzI59tZ8m+5bCSk7hzwET0pulwOM2YMn9J1efb07KB9l9f30SGg==
 
 path-parse@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-type@^1.0.0:
   version "1.1.0"
@@ -1846,6 +1847,14 @@ reg-notify-github-plugin@^0.7.26:
     request "^2.81.0"
     request-promise "^4.2.1"
     tiny-commit-walker "^1.1.2"
+
+reg-notify-slack-plugin@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/reg-notify-slack-plugin/-/reg-notify-slack-plugin-0.8.4.tgz#de8ca73ee20aed3a5b1a9eeeb4f95532ce723f40"
+  integrity sha512-J6peTb2v6jqKmTtLqIColOP0PgtkNyTE6zsPX1MHJSVV+EqcgzhylQ/6iJn/BQqFrBgDBiNaiBwtO/MBqL6CGQ==
+  dependencies:
+    request "^2.81.0"
+    request-promise "^4.2.1"
 
 reg-publish-s3-plugin@^0.7.25:
   version "0.7.25"
